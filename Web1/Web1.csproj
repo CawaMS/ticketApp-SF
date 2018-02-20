@@ -4,9 +4,15 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
     <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+    <ApplicationInsightsResourceId>/subscriptions/9de7ded6-0ad3-43e6-87b8-17d93e3ff695/resourcegroups/ticket_SF_AI/providers/microsoft.insights/components/ticket-sf-ai</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/9de7ded6-0ad3-43e6-87b8-17d93e3ff695/resourcegroups/ticket_SF_AI/providers/microsoft.insights/components/ticket-sf-ai</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.EventSourceListener" Version="2.5.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.ServiceFabric.Native" Version="2.0.1-beta1" />
+    <PackageReference Include="Microsoft.AspNet.TelemetryCorrelation" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.0.1" />
     <PackageReference Include="Microsoft.ServiceFabric" Version="6.1.456" />
@@ -22,6 +28,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IStatelessBackendService.Interfaces\IStatelessBackendService.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
 </Project>

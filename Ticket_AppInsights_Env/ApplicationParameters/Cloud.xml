@@ -3,5 +3,6 @@
   <Parameters>
     <Parameter Name="Stateless1_InstanceCount" Value="-1" />
     <Parameter Name="Web1_InstanceCount" Value="-1" />
+    <Parameter Name="APPINSIGHTS_INSTRUMENTATIONKEY" Value="fc028dcd-f669-4a74-bdde-83e1cdf4604b" />
   </Parameters>
 </Application>

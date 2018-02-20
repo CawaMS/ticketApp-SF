@@ -5,6 +5,7 @@
     <Parameter Name="Web1_InstanceCount" DefaultValue="-1" />
     <Parameter Name="Web1_StatelessBackendServiceName" DefaultValue="Stateless1" />
     <Parameter Name="WebService_ReverseProxyPort" DefaultValue="19082" />
+    <Parameter Name="APPINSIGHTS_INSTRUMENTATIONKEY" DefaultValue="" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
@@ -12,6 +13,9 @@
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Stateless1Pkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
+    <EnvironmentOverrides CodePackageRef="Code">
+      <EnvironmentVariable Name="APPINSIGHTS_INSTRUMENTATIONKEY" Value="[APPINSIGHTS_INSTRUMENTATIONKEY]" />
+    </EnvironmentOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Web1Pkg" ServiceManifestVersion="1.0.0" />
@@ -25,6 +29,9 @@
         </Settings>
       </ConfigOverride>
     </ConfigOverrides>
+    <EnvironmentOverrides CodePackageRef="Code">
+      <EnvironmentVariable Name="APPINSIGHTS_INSTRUMENTATIONKEY" Value="[APPINSIGHTS_INSTRUMENTATIONKEY]" />
+    </EnvironmentOverrides>
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
